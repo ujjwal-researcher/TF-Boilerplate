@@ -4,6 +4,7 @@ from loguru import logger
 
 def build_learning_schedule(schedule_proto):
     schedule_type = schedule_proto.WhichOneof('schedule')
+    schedule_proto = eval('schedule_proto.{}'.format(schedule_type))
     if schedule_type == 'cosine_decay_schedule':
         schedule = build_cosine_decay_schedule(schedule_proto)
     elif schedule_type == 'cosine_decay_restarts_schedule':
