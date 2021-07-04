@@ -1,0 +1,116 @@
+syntax = 'proto2';
+
+
+message Loss{
+  oneof loss{
+    BinaryCrossEntropyLoss binary_cross_entropy = 1;
+    CategoricalCrossEntropyLoss categorical_cross_entropy = 2;
+    CategoricalHingeLoss categorical_hinge = 3;
+    CosineSimilarityLoss cosine_similarity = 4;
+    HingeLoss hinge = 5;
+    HuberLoss huber = 6;
+    KLDivergenceLoss kl_divergence = 7;
+    LogCoshLoss log_cosh = 8;
+    MeanAbsoluteErrorLoss mean_absolute_error = 9;
+    MeanAbsolutePercentageErrorLoss mean_absolute_percentage_error = 10;
+    MeanSquaredErrorLoss mean_squared_error = 11;
+    MeanSquaredLogarithmicErrorLoss mean_squared_logarithmic_error = 12;
+    PoissonLoss poisson = 13;
+    SparseCategoricalCrossEntropyLoss sparse_categorical_cross_entropy = 14;
+    SquaredHingeLoss squared_hinge = 15;
+  }
+}
+
+enum REDUCTION{
+  AUTO = 1;
+  NONE = 2;
+  SUM = 3;
+  SUM_OVER_BATCH_SIZE = 4;
+}
+message BinaryCrossEntropyLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/BinaryCrossentropy
+  optional bool from_logits = 1[default = false];
+  optional float label_smoothing = 2[default = 0.0];
+  optional REDUCTION reduction = 3[default = AUTO];
+}
+
+message CategoricalCrossEntropyLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/CategoricalCrossentropy
+  optional bool from_logits = 1[default = false];
+  optional float label_smoothing = 2[default = 0.0];
+  optional REDUCTION reduction = 3[default = AUTO];
+}
+
+message CategoricalHingeLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/CategoricalHinge
+  optional REDUCTION reduction = 1[default = AUTO];
+}
+
+message CosineSimilarityLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/CosineSimilarity
+  optional int32 axis = 1[default = -1];
+  optional REDUCTION reduction = 2[default = AUTO];
+}
+
+message HingeLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/Hinge
+  optional REDUCTION reduction = 1[default = AUTO];
+}
+
+message HuberLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/Huber
+  optional float delta = 1[default = 1.0];
+  optional REDUCTION reduction = 2[default = AUTO];
+}
+
+message KLDivergenceLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/KLDivergence
+  optional REDUCTION reduction = 1[default = AUTO];
+}
+
+message LogCoshLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/LogCosh
+  optional REDUCTION reduction = 1[default = AUTO];
+}
+
+message MeanAbsoluteErrorLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/MeanAbsoluteError
+  optional REDUCTION reduction = 1[default = AUTO];
+
+}
+
+message MeanAbsolutePercentageErrorLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/MeanAbsolutePercentageError
+  optional REDUCTION reduction = 1[default = AUTO];
+
+}
+
+message MeanSquaredErrorLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/MeanSquaredError
+  optional REDUCTION reduction = 1[default = AUTO];
+
+}
+
+message MeanSquaredLogarithmicErrorLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/MeanSquaredLogarithmicError
+  optional REDUCTION reduction = 1[default = AUTO];
+
+}
+
+message PoissonLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/Poisson
+  optional REDUCTION reduction = 1[default = AUTO];
+
+}
+
+message SparseCategoricalCrossEntropyLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/SparseCategoricalCrossentropy
+  optional bool from_logits = 1[default = false];
+  optional REDUCTION reduction = 2[default = AUTO];
+
+}
+
+message SquaredHingeLoss{
+  // https://www.tensorflow.org/api_docs/python/tf/keras/losses/SquaredHinge
+  optional REDUCTION reduction = 1[default = AUTO];
+}
