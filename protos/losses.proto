@@ -30,14 +30,14 @@ enum REDUCTION{
 message BinaryCrossEntropyLoss{
   // https://www.tensorflow.org/api_docs/python/tf/keras/losses/BinaryCrossentropy
   optional bool from_logits = 1[default = false];
-  optional float label_smoothing = 2[default = 0.0];
+  optional double label_smoothing = 2[default = 0.0];
   optional REDUCTION reduction = 3[default = AUTO];
 }
 
 message CategoricalCrossEntropyLoss{
   // https://www.tensorflow.org/api_docs/python/tf/keras/losses/CategoricalCrossentropy
   optional bool from_logits = 1[default = false];
-  optional float label_smoothing = 2[default = 0.0];
+  optional double label_smoothing = 2[default = 0.0];
   optional REDUCTION reduction = 3[default = AUTO];
 }
 
@@ -59,7 +59,7 @@ message HingeLoss{
 
 message HuberLoss{
   // https://www.tensorflow.org/api_docs/python/tf/keras/losses/Huber
-  optional float delta = 1[default = 1.0];
+  optional double delta = 1[default = 1.0];
   optional REDUCTION reduction = 2[default = AUTO];
 }
 
