@@ -17,6 +17,9 @@ def build_learning_schedule(schedule_proto):
         schedule = build_piecewise_constant_decay_schedule(schedule_proto)
     elif schedule_type == 'polynomial_decay_schedule':
         schedule = build_polynomial_decay_schedule(schedule_proto)
+    elif schedule_type == 'constant_learning_rate':
+        logger.debug('Building constant learning rate.')
+        schedule = schedule_proto
     else:
         raise ValueError('A valid learning schedule proto was not found.')
 

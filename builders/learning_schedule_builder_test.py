@@ -123,6 +123,15 @@ class LearningScheduleBuildTest(tf.test.TestCase):
         self.assertAlmostEqual(schedule.power, 0.15)
         self.assertAlmostEqual(schedule.cycle, True)
 
+    def test_constant_learning_rate(self):
+        proto_txt = """
+        constant_learning_rate : 0.001
+        """
+        msg = learning_schedules_pb2.LearningRateSchedule()
+        text_format.Merge(proto_txt, msg)
+        schedule = build_learning_schedule(msg)
+        self.assertAlmostEqual(schedule, 0.001)
+
 
 if __name__ == "__main__":
     tf.test.main()
