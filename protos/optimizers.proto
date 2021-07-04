@@ -21,66 +21,66 @@ message Optimizer{
 message AdaDelta{
   // https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adadelta
   required LearningRateSchedule learning_schedule = 1;
-  optional float rho = 2[default = 0.95];
-  optional float epsilon = 3[default = 1E-7];
+  optional double rho = 2[default = 0.95];
+  optional double epsilon = 3[default = 1E-7];
 }
 
 message Adagrad{
   // https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adagrad
   required LearningRateSchedule learning_schedule = 1;
-  optional float initial_accumulator_value = 2[default = 0.1];
-  optional float epsilon = 3[default = 1E-7];
+  optional double initial_accumulator_value = 2[default = 0.1];
+  optional double epsilon = 3[default = 1E-7];
 }
 
 message Adam{
   // https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam
   required LearningRateSchedule learning_schedule = 1;
-  optional float beta_1 = 2[default = 0.9];
-  optional float beta_2 = 3[default = 0.999];
-  optional float epsilon = 4[default = 1E-7];
+  optional double beta_1 = 2[default = 0.9];
+  optional double beta_2 = 3[default = 0.999];
+  optional double epsilon = 4[default = 1E-7];
   optional bool amsgrad = 5[default = false];
 }
 
 message Adamax{
   // https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adamax
   required LearningRateSchedule learning_schedule = 1;
-  optional float beta_1 = 2[default = 0.9];
-  optional float beta_2 = 3[default = 0.999];
-  optional float epsilon = 4[default = 1E-7];
+  optional double beta_1 = 2[default = 0.9];
+  optional double beta_2 = 3[default = 0.999];
+  optional double epsilon = 4[default = 1E-7];
 }
 
 message Ftrl{
   // https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Ftrl
   required LearningRateSchedule learning_schedule = 1;
-  optional float learning_rate_power = 2[default = -0.5];
-  optional float initial_accumulator_value = 3[default = 0.1];
-  optional float l1_regularization_strength = 4[default = 0.0];
-  optional float l2_regularization_strength = 5[default = 0.0];
-  optional float l2_shrinkage_regularization_strength = 6[default = 0.0];
-  optional float beta = 7[default = 0.0];
+  optional double learning_rate_power = 2[default = -0.5];
+  optional double initial_accumulator_value = 3[default = 0.1];
+  optional double l1_regularization_strength = 4[default = 0.0];
+  optional double l2_regularization_strength = 5[default = 0.0];
+  optional double l2_shrinkage_regularization_strength = 6[default = 0.0];
+  optional double beta = 7[default = 0.0];
 }
 
 message Nadam{
   // https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Nadam
   required LearningRateSchedule learning_schedule = 1;
-  optional float beta_1 = 2[default = 0.9];
-  optional float beta_2 = 3[default = 0.999];
-  optional float epsilon = 4[default = 1E-7];
+  optional double beta_1 = 2[default = 0.9];
+  optional double beta_2 = 3[default = 0.999];
+  optional double epsilon = 4[default = 1E-7];
 }
 
 message RMSProp{
   // https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/RMSprop
   required LearningRateSchedule learning_schedule = 1;
-  optional float rho = 2[default = 0.9];
-  optional float momentum = 3[default = 0.0];
-  optional float epsilon = 4[default = 1E-7];
+  optional double rho = 2[default = 0.9];
+  optional double momentum = 3[default = 0.0];
+  optional double epsilon = 4[default = 1E-7];
   optional bool centered = 5[default = false];
 }
 
 message SGD{
   // https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/SGD
   required LearningRateSchedule learning_schedule = 1;
-  optional float momentum = 2[default = 0.0];
+  optional double momentum = 2[default = 0.0];
   optional bool nesterov = 3[default = false];
 }
 
