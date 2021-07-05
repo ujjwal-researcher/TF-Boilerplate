@@ -117,6 +117,10 @@ def build_ftrl(optimizer_proto, learning_schedule):
 
 
 def build_nadam(optimizer_proto, learning_schedule):
+    if not isinstance(learning_schedule, float):
+        logger.error('Nadam does only support a floating point number as the '
+                     'learning rate. No scheduing allowed.')
+        raise ValueError('Please refer to the log message above.')
     beta_1 = optimizer_proto.beta_1
     beta_2 = optimizer_proto.beta_2
     epsilon = optimizer_proto.epsilon
