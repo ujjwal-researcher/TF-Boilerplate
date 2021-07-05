@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+
+message Augmentations{
+  message augment{
+    oneof augmentation{
+      RandomHorizontalFlip random_horizontal_flip = 1;
+      RandomGrayScale random_gray_scale = 2;
+    }
+  }
+  repeated augment augment_method = 1;
+}
+
+
+message RandomHorizontalFlip{
+  optional double flip_probability = 1[default = 0.5];
+}
+
+message RandomGrayScale{
+  optional double gray_probability = 1[default = 0.5];
+}
+
