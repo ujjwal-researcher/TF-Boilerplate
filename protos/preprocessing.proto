@@ -1,0 +1,20 @@
+syntax = "proto2";
+import "protos/augmentations.proto";
+
+enum ResizeProtocol{
+  NEAREST_NEIGHBOR = 1;
+  BILINEAR = 2;
+  BICUBIC = 3;
+  GAUSSIAN = 4;
+  LANCZOS3 = 5;
+  LANCZOS5 = 6;
+  MICHELLCUBIC = 7;
+  AREA = 8;
+}
+
+message PreProcessing{
+  optional int32 image_height = 1;
+  optional int32 image_width = 2;
+  optional Augmentations augmentations = 3;
+  optional ResizeProtocol resize_protocol = 4;
+}

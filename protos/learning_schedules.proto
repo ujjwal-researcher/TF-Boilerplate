@@ -11,7 +11,7 @@ message LearningRateSchedule{
     InverseTimeDecaySchedule inverse_time_decay_schedule = 4;
     PiecewiseConstantDecaySchedule piecewise_constant_decay_schedule = 5;
     PolynomialDecaySchedule polynomial_decay_schedule = 6;
-    double constant_learning_rate=7;
+    double constant_learning_rate = 7;
   }
 }
 
